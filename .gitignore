@@ -1,0 +1,6 @@
+.vscode
+src/*.os
+.sconsign.dblite
+demo/bin/*.so
+demo/.godot
+demo/bin/gdextension.gdextension.uid

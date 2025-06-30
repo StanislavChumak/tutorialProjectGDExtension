@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvmddvysfw73s"]
+
+[ext_resource type="PackedScene" uid="uid://c2n5lbpn5ujxf" path="res://sprite_2d.tscn" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cn8b7cbsv4hh5" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PropertiesExport" type="PropertiesExport" parent="."]
+number = 100
+ranged_number = 256
+scene = ExtResource("1_0xm2m")
+
+[node name="BouncingSprite" type="BouncingSprite" parent="."]
+position = Vector2(991, 226)
+texture = ExtResource("1_ig7tw")

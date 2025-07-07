@@ -25,7 +25,7 @@ namespace godot
         BouncingSprite();
         ~BouncingSprite();
 
-        void set_speed(double newSpeed);
+        void set_speed(double new_speed);
         double get_speed() { return speed; }
 
         void _process(double delta) override;

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg430xdpjlji3"]
+
+[ext_resource type="Texture2D" uid="uid://b1455e4joop31" path="res://sprite/pers.png" id="1_xys6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xys6k"]
+size = Vector2(40, 108)
+
+[node name="PlayerTest" type="PlayerTest"]
+speed = 400.0
+jump_force = 900
+gravity = 2000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(4, 4)
+texture = ExtResource("1_xys6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xys6k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

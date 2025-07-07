@@ -68,9 +68,9 @@ void BouncingSprite::_process(double delta)
     set_position(pos);
 }
 
-void BouncingSprite::set_speed(double newSpeed)
+void BouncingSprite::set_speed(double new_speed)
 {
-    speed = newSpeed;
+    speed = new_speed;
     velocity = velocity.normalized() * speed;
 }
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqkq8eh2x70k1"]
+
+[ext_resource type="Script" uid="uid://bc7ej3mle3n61" path="res://background.gd" id="1_splo0"]
+[ext_resource type="Texture2D" uid="uid://chx2gje55jpop" path="res://sprite/fon/fon_layer1.png" id="1_xehqc"]
+[ext_resource type="Texture2D" uid="uid://l334leyaboq0" path="res://sprite/fon/fon_layer2.png" id="2_splo0"]
+[ext_resource type="Texture2D" uid="uid://b0lbfma15xvav" path="res://sprite/fon/fon_layer3.png" id="3_eq6nc"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_splo0")
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer1"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_xehqc")
+offset = Vector2(160, 90)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_splo0")
+offset = Vector2(160, 90)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(4, 4)
+texture = ExtResource("3_eq6nc")
+offset = Vector2(160, 90)

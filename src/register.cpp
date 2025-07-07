@@ -8,6 +8,7 @@
 #include "BouncingSprite.hpp"
 #include "PropertiesExport.hpp"
 #include "CustomResource.hpp"
+#include "PlayerTest.hpp"
 //================================
 
 
@@ -23,6 +24,7 @@ void initialize(ModuleInitializationLevel p_level)
     GDREGISTER_CLASS(BouncingSprite);
     GDREGISTER_CLASS(PropertiesExport);
     GDREGISTER_CLASS(CustomResource);
+    GDREGISTER_CLASS(PlayerTest);
 }
 
 void uninitialize(ModuleInitializationLevel p_level)

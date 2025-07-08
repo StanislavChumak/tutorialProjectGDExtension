@@ -1,6 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg430xdpjlji3"]
+[gd_scene load_steps=15 format=3 uid="uid://cg430xdpjlji3"]
 
-[ext_resource type="Texture2D" uid="uid://cikqydaqtgajk" path="res://sprite/Player/player-sheet.png" id="1_q8jdk"]
+[ext_resource type="Texture2D" uid="uid://cwp842ygc1lsb" path="res://sprite/Player/player-sheet.png" id="1_q8jdk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr0jt"]
+atlas = ExtResource("1_q8jdk")
+region = Rect2(128, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7sax"]
 atlas = ExtResource("1_q8jdk")
@@ -18,7 +22,7 @@ region = Rect2(96, 0, 16, 32)
 atlas = ExtResource("1_q8jdk")
 region = Rect2(80, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vr0jt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_60nld"]
 atlas = ExtResource("1_q8jdk")
 region = Rect2(112, 0, 16, 32)
 
@@ -46,6 +50,14 @@ region = Rect2(64, 0, 16, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vr0jt")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_o7sax")
 }, {
 "duration": 1.0,
@@ -63,7 +75,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vr0jt")
+"texture": SubResource("AtlasTexture_60nld")
 }],
 "loop": true,
 "name": &"jump",
@@ -100,9 +112,9 @@ animations = [{
 size = Vector2(40, 104)
 
 [node name="PlayerTest" type="PlayerTest"]
-speed = 400.0
+speed = 400
 jump_force = 900
-gravity = 2000.0
+gravity = 2000
 velocity = Vector2(0, 69199.2)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
@@ -112,14 +124,13 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_fpvjj")
 animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.443293
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_xys6k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -50)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 drag_horizontal_enabled = true

@@ -53,7 +53,10 @@ void PlayerTest::_physics_process(double delta)
     {
         velocity.y += gravity * delta;
         velocity.x *= 0.7;
-        anim->play("jump");
+        if(velocity.y < 0)
+            anim->play("jump");
+        else
+            anim->play("fall");
     }
     else
     {

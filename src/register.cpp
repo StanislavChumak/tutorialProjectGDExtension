@@ -9,6 +9,7 @@
 #include "PropertiesExport.hpp"
 #include "CustomResource.hpp"
 #include "PlayerTest.hpp"
+#include "EnemyTest.hpp"
 //================================
 
 
@@ -25,6 +26,7 @@ void initialize(ModuleInitializationLevel p_level)
     GDREGISTER_CLASS(PropertiesExport);
     GDREGISTER_CLASS(CustomResource);
     GDREGISTER_CLASS(PlayerTest);
+    GDREGISTER_CLASS(EnemyTest);
 }
 
 void uninitialize(ModuleInitializationLevel p_level)

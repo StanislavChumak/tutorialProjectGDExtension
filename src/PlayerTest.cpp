@@ -24,7 +24,7 @@ void PlayerTest::_bind_methods()
 void PlayerTest::_ready()
 {
     input = Input::get_singleton();
-    
+    anim = get_node<AnimatedSprite2D>("AnimatedSprite");
 }
 
 void PlayerTest::_physics_process(double delta)
@@ -32,35 +32,51 @@ void PlayerTest::_physics_process(double delta)
     // get
     Vector2 velocity = get_velocity();
 
-    // move left and right
+    // move left-right and flip
     velocity.x = (input->get_action_strength("ui_right") - input->get_action_strength("ui_left")) * speed;
+    if (velocity.x > 0)
+    {
+        anim->play("run");
+        anim->set_flip_h(true);
+    }
+    else if (velocity.x < 0)
+    {
+        anim->play("run");
+        anim->set_flip_h(false);
+    }
+    else
+        anim->play("idle");
 
-    // gravity
-    if(!is_on_floor())
+    
+    // gravity and jump
+    if (!is_on_floor())
     {
         velocity.y += gravity * delta;
         velocity.x *= 0.7;
+        anim->play("jump");
     }
     else
+    {
         velocity.y = 0;
+        // jump
+        if (input->is_action_just_pressed("jump"))
+        {
+            velocity.y = -jump_force;
+        }
+    }
 
-    //jump
-    if (input->is_action_just_pressed("jump") && is_on_floor())
-        velocity.y = -jump_force;
-    
     // set
     set_velocity(velocity);
     move_and_slide();
 }
 
 PlayerTest::PlayerTest()
-: speed(300), jump_force(500), gravity(900)
+    : speed(300), jump_force(500), gravity(900)
 {
-    if(Engine::get_singleton()->is_editor_hint())
+    if (Engine::get_singleton()->is_editor_hint())
         set_process_mode(Node::ProcessMode::PROCESS_MODE_DISABLED);
 }
 
 PlayerTest::~PlayerTest()
 {
-
 }

@@ -3,6 +3,7 @@
 
 #include <godot_cpp/classes/character_body2d.hpp>
 #include <godot_cpp/classes/input.hpp>
+#include <godot_cpp/classes/animated_sprite2d.hpp>
 
 namespace godot
 {
@@ -15,6 +16,7 @@ namespace godot
         int jump_force;
         int gravity;
         Input *input;
+        AnimatedSprite2D *anim;
 
     protected:
         static void _bind_methods();
